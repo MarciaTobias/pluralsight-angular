@@ -1,4 +1,4 @@
-# pluralsight-js
+# pluralsight-angular
 ## Learning Angular on PluralSight
 
 ### 1 - Angular: Getting Started
