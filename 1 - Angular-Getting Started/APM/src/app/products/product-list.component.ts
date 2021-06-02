@@ -6,7 +6,10 @@ import { Component } from "@angular/core";
 })
 
 export class ProductListComponent {
-    pageTitle: string = 'Product List';
+    // Property default value, does not require data type
+    pageTitle = 'Product List';
+    imageWidth = 50;
+    imageMargin = 2;
     products: any = [
         {
             "productId": 2,
