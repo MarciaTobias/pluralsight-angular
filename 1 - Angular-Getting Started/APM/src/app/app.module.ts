@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './products/product-list.component';
 import { FormsModule } from '@angular/forms';
+import { ConvertToSpacesPipe } from './products/convert-to-spaces-pipe';
 
 @NgModule({
   // Angular can locate its selector
   declarations: [
     AppComponent,
     ProductListComponent, 
+    ConvertToSpacesPipe
   ],
   imports: [
     // Application runs correctly in the browser

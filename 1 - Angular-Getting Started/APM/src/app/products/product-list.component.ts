@@ -1,11 +1,14 @@
+import { OnInit } from "@angular/core";
 import { Component } from "@angular/core";
+import { pipe } from "rxjs";
 
 @Component ({
     selector: 'pm-products',
-    templateUrl: './product-list.component.html'
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent {
+export class ProductListComponent implements OnInit {
     // Property default value, does not require data type
     pageTitle = 'Product List';
     imageWidth = 50;
@@ -37,8 +40,15 @@ export class ProductListComponent {
 
     // Void if there is no return type
     toggleImage(): void {
-        // it changes the value from true to false and vice versa
+        // it changes the value from true
         this.showImage = !this.showImage;
     }
+
+    // Lifecycle Hook
+    ngOnInit(): void {
+        console.log('In OnInit');
+    }
+
+
         
  }
