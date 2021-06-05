@@ -1,5 +1,6 @@
 import { OnInit } from "@angular/core";
 import { Component } from "@angular/core";
+import { IProduct } from "./product";
 
 @Component ({
     selector: 'pm-products',
@@ -23,7 +24,10 @@ export class ProductListComponent implements OnInit {
     set listFilter(value: string) {
         this._listFilter = value;
         console.log('In setter: ', value);
+        this.filteredProducts = this.performFilter(value);
     }
+
+    filteredProducts: IProduct[] = [];
 
     products: any = [
         {
@@ -47,6 +51,13 @@ export class ProductListComponent implements OnInit {
             "imageUrl": "assets/images/hammer.png"
           } 
     ];
+
+    performFilter(filterBy: string): IProduct[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        // If the list filter is empty it will return all products
+        return this.products.filter((product: IProduct) =>
+                product.productName.toLocaleLowerCase().includes(filterBy));
+    }
 
     // Void if there is no return type
     toggleImage(): void {
