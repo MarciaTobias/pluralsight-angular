@@ -1,6 +1,5 @@
 import { OnInit } from "@angular/core";
 import { Component } from "@angular/core";
-import { pipe } from "rxjs";
 
 @Component ({
     selector: 'pm-products',
@@ -14,7 +13,18 @@ export class ProductListComponent implements OnInit {
     imageWidth = 50;
     imageMargin = 2;
     showImage: boolean = false;
-    listFilter: string = 'cart';
+    // List deleted to after creating of getters and setters
+    //listFilter: string = 'cart';
+
+    private _listFilter: string = '';
+    get listFilter(): string {
+        return this._listFilter;
+    }
+    set listFilter(value: string) {
+        this._listFilter = value;
+        console.log('In setter: ', value);
+    }
+
     products: any = [
         {
             "productId": 2,
@@ -46,9 +56,7 @@ export class ProductListComponent implements OnInit {
 
     // Lifecycle Hook
     ngOnInit(): void {
-        console.log('In OnInit');
-    }
-
-
-        
+        //console.log('In OnInit');
+        this.listFilter = 'cart';
+    }        
  }
