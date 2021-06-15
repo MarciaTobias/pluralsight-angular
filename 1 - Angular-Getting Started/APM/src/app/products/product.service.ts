@@ -5,7 +5,8 @@ import { IProduct } from "./product";
     providedIn: 'root'
 })
 export class ProductService {
-    // Methods or class will be accessible for any class that use this service, unless it marcked as protected or private
+    // Methods or class will be accessible for any class that use this service,
+    // unless it marcked as protected or private
     getProducts(): IProduct[] {
         return [
             {
