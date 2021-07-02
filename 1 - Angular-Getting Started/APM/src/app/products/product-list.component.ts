@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
+import { Subscription } from "rxjs";
 import { IProduct } from "./product";
 import { ProductService } from "./product.service";
 
@@ -20,6 +21,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     // List deleted to after creating of getters and setters
     //listFilter: string = 'cart';
     errorMessage: string = ' ';
+    sub!: Subscription
 
     private _listFilter: string = '';
     get listFilter(): string {
@@ -50,7 +52,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     // Lifecycle Hook, place to perfom any component initilization
     ngOnInit(): void {
         //this.products = this.productService.getProducts();
-        this.productService.getProducts().subscribe({
+        this.sub = this.productService.getProducts().subscribe({
             next: products => {
                 this.products = products;
                 this.filteredProducts = this.products;
@@ -61,6 +63,10 @@ export class ProductListComponent implements OnInit, OnDestroy {
         //console.log('In OnInit');
         //this.listFilter = 'cart';
     }   
+
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
     
     onRatingClicked(message: string): void {
         this.pageTitle = 'Product List: ' + message;
