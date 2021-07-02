@@ -1,5 +1,4 @@
-import { OnInit } from "@angular/core";
-import { Component } from "@angular/core";
+import { Component, OnInit, OnDestroy } from "@angular/core";
 import { IProduct } from "./product";
 import { ProductService } from "./product.service";
 
@@ -9,8 +8,8 @@ import { ProductService } from "./product.service";
     styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent implements OnInit {
-
+export class ProductListComponent implements OnInit, OnDestroy {
+    
     constructor(private productService: ProductService) {}
 
     // Property default value, does not require data type
@@ -20,6 +19,7 @@ export class ProductListComponent implements OnInit {
     showImage: boolean = false;
     // List deleted to after creating of getters and setters
     //listFilter: string = 'cart';
+    errorMessage: string = ' ';
 
     private _listFilter: string = '';
     get listFilter(): string {
@@ -49,8 +49,15 @@ export class ProductListComponent implements OnInit {
 
     // Lifecycle Hook, place to perfom any component initilization
     ngOnInit(): void {
-        this.products = this.productService.getProducts();
-        this.filteredProducts = this.products;
+        //this.products = this.productService.getProducts();
+        this.productService.getProducts().subscribe({
+            next: products => {
+                this.products = products;
+                this.filteredProducts = this.products;
+            },
+            error: err => this.errorMessage = err
+        });
+        
         //console.log('In OnInit');
         //this.listFilter = 'cart';
     }   
