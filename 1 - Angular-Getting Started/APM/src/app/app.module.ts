@@ -7,6 +7,7 @@ import { ProductListComponent } from './products/product-list.component';
 import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from './products/convert-to-spaces-pipe';
 import { StarComponent } from './shared/star.component';
+import { ProductDetailComponent } from './products/product-detail.component';
 
 @NgModule({
   // Angular can locate its selector
@@ -15,7 +16,8 @@ import { StarComponent } from './shared/star.component';
     AppComponent,
     ProductListComponent, 
     ConvertToSpacesPipe,
-    StarComponent
+    StarComponent,
+    ProductDetailComponent
   ],
   imports: [
     // Application runs correctly in the browser
