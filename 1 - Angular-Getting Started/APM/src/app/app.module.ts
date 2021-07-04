@@ -8,12 +8,14 @@ import { FormsModule } from '@angular/forms';
 import { ConvertToSpacesPipe } from './products/convert-to-spaces-pipe';
 import { StarComponent } from './shared/star.component';
 import { ProductDetailComponent } from './products/product-detail.component';
+import { WelcomeComponent } from './home/welcome.component';
 
 @NgModule({
   // Angular can locate its selector
   declarations: [
     // Using a component as a directive
     AppComponent,
+    WelcomeComponent,
     ProductListComponent, 
     ConvertToSpacesPipe,
     StarComponent,
