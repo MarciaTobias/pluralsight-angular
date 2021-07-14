@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { IProduct } from './product';
 
 @Component({
   // no need for select once we won't have a nested comp.
@@ -9,6 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ProductDetailComponent implements OnInit {
   pageTitle: string = 'Product Detail';
+  product: IProduct | undefined;
 
   constructor(private route: ActivatedRoute) { }
 
