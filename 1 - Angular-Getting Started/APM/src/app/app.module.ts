@@ -18,26 +18,14 @@ import { ProductModule } from './products/product.module';
   declarations: [
     // Using a component as a directive
     AppComponent,
-    WelcomeComponent,
-    ProductListComponent, 
-    ConvertToSpacesPipe,
-    StarComponent,
-    ProductDetailComponent
+    WelcomeComponent
   ],
   imports: [
     // Application runs correctly in the browser
     BrowserModule,
     // Nativily from Angular
-    FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'products', component: ProductListComponent },
-      { 
-        path: 'products/:id',
-        // Specify which guard we want display when activating the route
-        canActivate: [ProductDetailGuard],
-        component: ProductDetailComponent
-      },
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo: 'welcome', pathMatch: 'full' },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
