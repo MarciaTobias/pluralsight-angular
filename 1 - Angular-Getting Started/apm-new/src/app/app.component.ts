@@ -1,10 +1,22 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
+// The component decorator is a function (), so we pass an object {}
 @Component({
+  // itens inside are properties
   selector: 'pm-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  template:`
+  <nav class='navbar navbar-expand navbar-light bg-light'>
+    <a class='navbar-brand'>{{pageTitle}}</a>
+    <ul class='nav nav-pilss'>
+      <li><a class='nav-link' routerLink='welcome'>Home</a></li>
+      <li><a class='nav-link' routerLink='products'>Product List</a></li>
+    </ul>
+  </nav>
+  <div class='cotainer'>
+    <router-outlet></router-outlet>
+  </div>
+  `
 })
 export class AppComponent {
-  title = 'apm-new';
+  pageTitle: string = 'Acme Product Management';
 }
