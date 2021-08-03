@@ -5,7 +5,7 @@ import { catchError, tap } from 'rxjs/operators';
 import { IProduct } from './product';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class ProductService {
   private productUrl = 'api/products/products.json';
@@ -15,7 +15,7 @@ export class ProductService {
   // unless it marcked as protected or private
   getProducts(): Observable<IProduct[]> {
     return this.http.get<IProduct[]>(this.productUrl).pipe(
-      //tap.(data => console.log('All: ', JSON.stringify(data))),
+      //tap(data => console.log('All: ', JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
@@ -25,11 +25,11 @@ export class ProductService {
     // instead of just logging it to the console
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
-      // A client-side or network error ocurred. Handle ir accordingly.
-      errorMessage = `An error occured: ${err.error.message}`;
+      // A client-side or network error occurred. Handle it accordingly.
+      errorMessage = `An error occurred: ${err.error.message}`;
     } else {
-      // The backend returned an usuccessful response code.
-      // The response body may contain clues as to what whent wrong.
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
       errorMessage = `Server returned code: ${err.status}, error message is: ${err.message}`;
     }
     console.error(errorMessage);

@@ -1,18 +1,18 @@
-import { Component } from "@angular/core";
+import { Component } from '@angular/core';
 
 // The component decorator is a function (), so we pass an object {}
 @Component({
   // itens inside are properties
   selector: 'pm-root',
-  template:`
+  template: `
   <nav class='navbar navbar-expand navbar-light bg-light'>
     <a class='navbar-brand'>{{pageTitle}}</a>
-    <ul class='nav nav-pilss'>
-      <li><a class='nav-link' routerLink='welcome'>Home</a></li>
-      <li><a class='nav-link' routerLink='products'>Product List</a></li>
+    <ul class='nav nav-pills'>
+      <li><a class='nav-link' routerLink='/welcome'>Home</a></li>
+      <li><a class='nav-link' routerLink='/products'>Product List</a></li>
     </ul>
   </nav>
-  <div class='cotainer'>
+  <div class='container'>
     <router-outlet></router-outlet>
   </div>
   `

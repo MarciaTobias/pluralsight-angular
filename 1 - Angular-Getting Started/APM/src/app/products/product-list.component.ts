@@ -1,7 +1,7 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Subscription } from "rxjs";
-import { IProduct } from "./product";
-import { ProductService } from "./product.service";
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { IProduct } from './product';
+import { ProductService } from './product.service';
 
 @Component ({
     //selector: 'pm-products',
@@ -64,11 +64,11 @@ export class ProductListComponent implements OnInit, OnDestroy {
         //this.listFilter = 'cart';
     }   
 
-    ngOnDestroy() {
-        this.sub.unsubscribe();
-    }
-    
-    onRatingClicked(message: string): void {
-        this.pageTitle = 'Product List: ' + message;
-    }
- }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
+
+  onRatingClicked(message: string): void {
+    this.pageTitle = 'Product List: ' + message;
+  }
+}
